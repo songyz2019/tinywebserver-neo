@@ -78,16 +78,16 @@ void WebServer::log_write()
     {
         //初始化日志
         if (1 == m_log_write)
-            Log::get_instance()->init("./ServerLog", m_close_log, 2000, 800000, 800);
+            Logger::getInstance()->init("./ServerLog", m_close_log, 2000, 800000, 800);
         else
-            Log::get_instance()->init("./ServerLog", m_close_log, 2000, 800000, 0);
+            Logger::getInstance()->init("./ServerLog", m_close_log, 2000, 800000, 0);
     }
 }
 
 void WebServer::sql_pool()
 {
     //初始化数据库连接池
-    m_connPool = SrvConnectionPool::GetInstance();
+    m_connPool = SqlConnectionPool::GetInstance();
     m_connPool->init("127.0.0.1", m_user, m_passWord, m_databaseName, 3306, m_sql_num, m_close_log);
 
 

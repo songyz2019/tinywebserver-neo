@@ -82,7 +82,7 @@ public:
     {
         return &m_address;
     }
-    void initmysql_result(SrvConnectionPool *connPool);
+    void initmysql_result(SqlConnectionPool *connPool);
     int timer_flag;
     int improv;
 
@@ -142,7 +142,7 @@ private:
 
     map<string, string> m_users;
     int m_TRIGMode;
-    int m_close_log;
+    int mDisableLogging;
 
     char sql_user[100];
     char sql_passwd[100];

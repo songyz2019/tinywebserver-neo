@@ -199,8 +199,8 @@ public:
     }
 
 private:
-    locker m_mutex;
-    cond m_cond;
+    Locker m_mutex;
+    Cond m_cond;
 
     T *m_array;
     int m_size;

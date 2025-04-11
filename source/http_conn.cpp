@@ -14,10 +14,10 @@ const char *error_404_form = "The requested file was not found on this server.\n
 const char *error_500_title = "Internal Error";
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
-locker m_lock;
+Locker m_lock;
 map<string, string> users;
 
-void http_conn::initmysql_result(SrvConnectionPool *connPool)
+void http_conn::initmysql_result(SqlConnectionPool *connPool)
 {
     //先从连接池中取一个连接
     MYSQL *mysql = NULL;
@@ -122,7 +122,7 @@ void http_conn::init(int sockfd, const sockaddr_in &addr, char *root, int TRIGMo
     //当浏览器出现连接重置时，可能是网站根目录出错或http响应格式出错或者访问的文件中内容完全为空
     doc_root = root;
     m_TRIGMode = TRIGMode;
-    m_close_log = close_log;
+    mDisableLogging = close_log;
 
     strcpy(sql_user, user.c_str());
     strcpy(sql_passwd, passwd.c_str());
