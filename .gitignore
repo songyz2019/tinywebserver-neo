@@ -1,0 +1,9 @@
+/build/*
+/.vscode
+/cpm_modules
+.DS_Store
+docker/*/data
+
+.cache/*
+.vscode/*
+www/*

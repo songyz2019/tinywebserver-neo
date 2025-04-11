@@ -1,0 +1,20 @@
+name: tinywebserver
+services:
+    mysql:
+      image: mysql:9
+      container_name: mysql
+      # restart: always
+      volumes:
+        - ./init.d:/docker-entrypoint-initdb.d/
+        # - ./data/etc/mysql:/etc/mysql
+        # - ./data/var/lib/mysql:/var/lib/mysql
+      # command: --user=syz
+        
+      environment:
+        MYSQL_ROOT_PASSWORD: root#b512
+        MYSQL_DATABASE: tinywebserver
+        MYSQL_USER: tinywebserver
+        MYSQL_PASSWORD: tinywebserver
+      # network_mode: host
+      ports:
+        - "3306:3306"
